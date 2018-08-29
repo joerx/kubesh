@@ -1,6 +1,8 @@
-FROM alpine:3.6
+FROM debian:stretch
 
-RUN apk --no-cache add bash curl bind-tools iputils postgresql-client py-pip jq
+RUN apt-get update \
+ && apt-get -y dist-upgrade \
+ && apt-get -y install bash curl dnsutils postgresql-client python-pip jq
 RUN pip install awscli
 
 CMD ["/bin/bash"]
