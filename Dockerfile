@@ -10,4 +10,5 @@ RUN useradd user -s /bin/bash -G sudo --create-home -u 1000 \
 
 USER 1000
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c", "--"]
+CMD ["while true; do sleep 10; done"]
